@@ -4,10 +4,15 @@
 <ul>
 	<% @projects.each do |project| %>
 		<%if project.description.present?%>
-			<li><%="this proj is called --> #{project.name} and #{project.description}"%></li>
-		<%else%>
+			<a href=<%= "/projects/#{project.id}"%>>
+				<li><%="this proj is called --> #{project.name} and #{project.description}"%></li>
+			</a>
 			
-		<li><%=" this project is called -->   #{project.name}"%></li>
+		<%else%>
+			<a href=<%= "/projects/#{project.id}"%>>
+				<li><%=" this project is called -->   #{project.name}"%></li>
+			</a>	
+		
 		<%end%>
 			
 	<%end%>

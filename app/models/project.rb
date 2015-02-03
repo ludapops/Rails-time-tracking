@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+	has_many :entries
+	
 	def self.iron_find(id)
 		where(id: id).first
 	end
@@ -12,4 +14,10 @@ class Project < ActiveRecord::Base
 	def self.last_created_projects(n)
 		order(created_at: :desc).limit(n)
 	end
+
+
 end
+
+
+  		
+
