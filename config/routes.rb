@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'projects/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,11 +57,8 @@ Rails.application.routes.draw do
   #   end
 
 
-  Rails.application.routes.draw do 
-    get '/' => 'site#home'
-  end
 
-  Rails.application.routes.draw do 
-    get 'contact' => 'site#contact'
-  end
+    get '/' => 'site#home' 
+    get '/contact' => 'site#contact'
+    get '/projects' => 'projects#index'
 end

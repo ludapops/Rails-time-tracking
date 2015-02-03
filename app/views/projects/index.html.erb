@@ -1,0 +1,15 @@
+<h1>Projects#index</h1>
+
+
+<ul>
+	<% @projects.each do |project| %>
+		<%if project.description.present?%>
+			<li><%="this proj is called --> #{project.name} and #{project.description}"%></li>
+		<%else%>
+			
+		<li><%=" this project is called -->   #{project.name}"%></li>
+		<%end%>
+			
+	<%end%>
+	
+</ul>
