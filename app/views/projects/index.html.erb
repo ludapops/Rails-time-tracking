@@ -3,18 +3,13 @@
 
 <ul>
 	<% @projects.each do |project| %>
-		<%if project.description.present?%>
-			<a href=<%= "/projects/#{project.id}"%>>
-				<li><%="this proj is called --> #{project.name} and #{project.description}"%></li>
-			</a>
-			
-		<%else%>
-			<a href=<%= "/projects/#{project.id}"%>>
-				<li><%=" this project is called -->   #{project.name}"%></li>
-			</a>	
-		
-		<%end%>
-			
+		<li><%= link_to(project.name, project_entries_path(project))%>
+			<% if project.description.present?%> 
+				- <%=project.description%>
+			<%end%>
+		</li>		
 	<%end%>
 	
 </ul>
+
+

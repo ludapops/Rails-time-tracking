@@ -4,10 +4,15 @@
 			<li>
 				<%=entry.hours%> h
 				<%=entry.minutes%> m -
-				<%=entry.date%>
+				<%=entry.date%> -
+				<%= link_to('edit', edit_project_entry_path(@project, entry))%>
 			</li>
 
 		
 	<%end%>
 	<p>Total hours worked: <%= @project.monthly_work(@date.month, @date.year)%></p>
 </ul>
+<%= link_to('projects', projects_path)%>
+<br>
+<%= link_to('Create Entry', new_project_entry_path(@project.id))%>
+

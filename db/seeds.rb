@@ -8,7 +8,7 @@
 
 
 (1..15).each do |i| 
-	x = Project.create name: i, description: "this the #{i} description"
+	x = Project.create! name: "Project #{i}", description: "this the #{i} description"
 	if i % 3 == 0
 		x.entries.create hours: 1, minutes: 45, date: Time.now
 	end 

@@ -1,20 +1,18 @@
 <%= form_for [@project, @entry] do |f|%>
 	<%= f.label :hours %>
-	<%= f.text_field :hours %>
+	<%= f.text_field :hours, size: 4 %>
 	<br>
 	<%= f.label :minutes %>
-	<%= f.text_field :minutes %>
+	<%= f.text_field :minutes, size: 4 %>
 	<br>
 	<%= f.label :date %>
-	<%= f.date_field :date %>
+	<%= f.date_field :date, size: 4 %>
 	<br>
 	
 	<%= f.submit 'Save' %>
+	<%= link_to 'Cancel', project_entries_path(@project)%>
 
 <%end%>
-
-<%= link_to('entries', project_entries_path)%>
-
 
 <% if @entry.errors.any? %>
 	<ul>
