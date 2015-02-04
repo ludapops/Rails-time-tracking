@@ -1,0 +1,13 @@
+<h1><%= @project.name%></h1>
+<ul>
+	<%@entries.each do |entry|%>
+			<li>
+				<%=entry.hours%> h
+				<%=entry.minutes%> m -
+				<%=entry.date%>
+			</li>
+
+		
+	<%end%>
+	<p>Total hours worked: <%= @project.monthly_work(@date.month, @date.year)%></p>
+</ul>

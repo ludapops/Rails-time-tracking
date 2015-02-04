@@ -15,7 +15,17 @@ class Project < ActiveRecord::Base
 		order(created_at: :desc).limit(n)
 	end
 
-
+	def monthly_work(month,year)
+		date = DateTime.new(year, month)
+		es = entries.where(date: date.beginning_of_month..date.end_of_month)
+		hours = 0
+		minutes = 0
+		es.each do |entry| 
+			hours += entry.hours
+			minutes += entry.minutes
+		end
+		minutes/60 + hours
+	end 
 end
 
 
