@@ -37,6 +37,7 @@ class EntriesController < ApplicationController
 		@entry = @project.entries.find params[:id]
 
 		if @entry.update_attributes(entry_params)
+			UserMailer.entry_created(@project).deliver
 			redirect_to action:  'index', controller: 'entries', project_id: @project.id
 		else 
 			render 'edit'
