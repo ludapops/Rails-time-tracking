@@ -18,8 +18,10 @@ class EntriesController < ApplicationController
 		@entry = @project.entries.new entry_params
 
 		if @entry.save
+			flash[:notice] = "Entry created successfully"
 			redirect_to action:  'index', controller: 'entries', project_id: @project.id 
 		else 
+			flash[:error] = "Something went wrong"
 			render 'new'
 		end 
 	end 
@@ -40,6 +42,16 @@ class EntriesController < ApplicationController
 			render 'edit'
 
 		end
+	end
+
+	def destroy
+		@project = Project.find params[:project_id]
+		@entry = @project.entries.find params[:id]
+
+		if @entry.destroy
+			redirect_to action: 'index', controller: 'entries', project_id: @project.id
+		end
+
 	end
 
 	private 
